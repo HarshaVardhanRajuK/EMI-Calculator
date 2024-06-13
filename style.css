@@ -11,15 +11,13 @@ label {
     align-items: center;
 }
 
-.tip-calculator-container {
+.calculator-container {
     background-color: #f9fbfe;
 }
 
-.tip-calculator-image {
-    width: 100%;
-}
 
-.tip-calculator-heading {
+
+.heading {
     color: #264fa2;
     font-family: "Roboto";
     font-size: 48px;
