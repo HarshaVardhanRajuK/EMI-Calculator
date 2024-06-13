@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous" />
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="style.css" />
+    
+</head>
+
+<body>
+    <div class="tip-calculator-container pb-5">
+        <!-- <img class="tip-calculator-image"
+            src="https://d1tgh8fmlzexmh.cloudfront.net/ccbp-dynamic-webapps/tip-calculator-img.png" /> -->
+        <h1 class="tip-calculator-heading text-center mt-4 mb-4">
+            EMI CALCULATOR
+            <span class="copyright">&copy;Korneli</span>
+        </h1>
+        <div class="container">
+            <div class="row">
+
+                <div class="col-12 col-md-6 mb-4">
+                    <p class="input-label mb-2">APPROVED LOAN AMOUNT</p>
+                    <input oninput="changeErrFunc()" id="appLoanAmount" type="text" class="user-input" required/>
+                    <span id="error" class="error-message">* Required</span>
+                </div>
+
+                <div class="col-12 col-md-12 mb-4">
+                    <p class="input-label mb-2">LIFE INSURANCE</p>
+                    <div style="display: flex; gap: 10px;">
+
+
+                        <div class="radio-div">
+                            <div class="center">
+
+                                <label for="life-yes">YES</label>
+                                <input name="life-insurance" id="life-yes" type="radio" class="user-input" value="true" checked/>
+                            </div>
+                            <div class="center">
+
+                                <label for="life-no">NO</label>
+                                <input name="life-insurance" id="life-no" type="radio" class="user-input" value="false"/>
+                            </div>
+                        </div>
+                        <!-- <button class="button" onclick="CheckLifeAmount()">Check</button> -->
+                        <input type="text" id="lifeAmount" disabled />
+                            
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-12 mb-4">
+                    <p class="input-label mb-2">HEALTH INSURANCE</p>
+                    <div style="display: flex; gap: 10px;">
+
+
+                        <div class="radio-div">
+                            <div class="center">
+
+                                <label for="health-yes">YES</label>
+                                <input name="health-insurance" id="health-yes" type="radio" class="user-input" value="true" checked/>
+                            </div>
+                            <div class="center">
+
+                                <label for="health-no">NO</label>
+                                <input name="health-insurance" id="health-no" type="radio" class="user-input" value="false" />
+                            </div>
+                        </div>
+                        <!-- <button class="button" onclick="CheckHealthAmount()">Check</button> -->
+                        <input type="text" id="healthAmount" disabled />
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-6 mb-4">
+                    <p class="input-label mb-2">PROCESSING FEE</p>
+                    <input id="processingFee" type="text" class="user-input" disabled/>
+                </div>
+
+                <div class="col-12 col-md-6 mb-4">
+                    <p class="input-label mb-2">TOTAL GROSS-UP AMOUNT</p>
+                    <input id="totalGrossAmount" type="text" class="user-input" disabled/>
+                </div>
+
+                <div class="col-12 col-md-6 mb-4">
+                    <p class="input-label mb-2">TOTAL LOAN AMOUNT</p>
+                    <input id="totalLoanAmount" type="text" class="user-input" disabled/>
+                </div>
+
+                </div>
+            <!-- <button class="button" onclick="CalculateTotalLoan()">Calculate</button> -->
+
+            <div class="row mt-4">
+                <div class="col-12 col-md-6 mb-4">
+                    <p class="input-label mb-2">IRR</p>
+                    <input id="irr" type="range" min="15" max="35"  class="user-input" value="35" style="width: 50%;padding: 0px;" oninput="onchangeRange(this)"/>
+
+                    <input id="irrVal" type="text" value="35" class="user-input" style="text-align: center;width: 100px;padding: 0px;">
+                </div>
+
+                <div class="col-12 col-md-6 mb-4">
+                    <p class="input-label mb-2">TENURE</p>
+                    <!-- <input id="tenure" type="text" class="user-input" /> -->
+                     <select id="tenure">
+                        <!-- <option value="0">0</option> -->
+                        <option value="27">27</option>
+                        <option value="39">39</option>
+                        <option value="51">51</option>
+                        <option value="60">60</option>
+                        <option value="63">63</option>
+                     </select>
+                     <span id="error2" class="error-message">* Required</span>
+                     
+                </div>
+
+                <div class="col-12 col-md-6 mb-4">
+                    <p class="input-label mb-2">ROI per Anum</p>
+                    <input id="ROIpa" type="text" class="user-input" disabled/>
+                </div>
+
+                <div class="col-12 col-md-6 mb-4">
+                    <p class="input-label mb-2">ROI per Month</p>
+                    <input id="ROIpm" type="text" class="user-input" disabled/>
+                </div>
+
+
+                <div class="col-12 col-md-6 mb-4">
+                    <p class="input-label mb-2">EMI AMOUNT</p>
+                    <input id="emiAmount" type="text" class="user-input" disabled/>
+                </div>
+
+                
+                </div>
+            <button class="button" id="checkEmi" onclick="checkEmi()">Check EMI</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

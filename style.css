@@ -1,0 +1,96 @@
+@import url("https://fonts.googleapis.com/css2?family=Bree+Serif&family=Caveat:wght@400;700&family=Lobster&family=Monoton&family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Playfair+Display+SC:ital,wght@0,400;0,700;1,700&family=Playfair+Display:ital,wght@0,400;0,700;1,700&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&family=Source+Sans+Pro:ital,wght@0,400;0,700;1,700&family=Work+Sans:ital,wght@0,400;0,700;1,700&display=swap");
+
+label {
+    margin-bottom: 0;
+    margin-right: 5px;
+    cursor: pointer;
+}
+
+.center {
+    display: flex;
+    align-items: center;
+}
+
+.tip-calculator-container {
+    background-color: #f9fbfe;
+}
+
+.tip-calculator-image {
+    width: 100%;
+}
+
+.tip-calculator-heading {
+    color: #264fa2;
+    font-family: "Roboto";
+    font-size: 48px;
+    font-weight: 500;
+}
+
+.input-label {
+    color: #7b8794;
+    font-family: "Roboto";
+    font-size: 14px;
+    
+}
+
+.radio-div {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 20px;
+}
+.radio-div input {
+    width: 25px;
+}
+
+#lifeAmount, #healthAmount {
+    font-weight: bold;
+    text-align: right;
+    padding: 0 15px;
+}
+
+
+.user-input {
+    height: 40px;
+    width: 100%;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #cbd2d9;
+    border-radius: 4px;
+    padding-left: 12px;
+    font-weight: bold;
+}
+
+.button {
+    background-color: #264fa2;
+    color: white;
+    font-family: "Roboto";
+    font-size: 18px;
+    border-radius: 4px;
+    padding: 8px;
+}
+
+.error-message {
+    display: none;
+
+    color: #cf1124;
+    font-family: "Roboto";
+    font-size: 14px;
+    font-weight: 500;
+    margin-top: 10px;
+}
+
+select {
+    padding: 5px 10px;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+
+.copyright {
+    position: relative;
+    top: 6px;
+    font-size: 18px;
+}
+
+
