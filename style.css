@@ -44,7 +44,7 @@ label {
 
 #lifeAmount, #healthAmount {
     font-weight: bold;
-    text-align: right;
+    text-align: left;
     padding-left: 25px;
 }
 
