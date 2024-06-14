@@ -123,13 +123,13 @@ function CalculateTotalLoan() {
     let finPulseReport = 499
 
     let proFeeVal = ((la + li + gi + finPulseReport) * 0.0393) / (1 - 0.0393)
-    let grossAmountVal = proFeeVal + li + gi
+    let grossAmountVal = proFeeVal + li + gi + finPulseReport
 
-    proFee.value = Math.ceil(proFeeVal)
+    proFee.value = proFeeVal.toFixed(3)
 
-    grossAmount.value = Math.ceil(grossAmountVal)
+    grossAmount.value = grossAmountVal.toFixed(3)
 
-    totalLoanAmount.value = Math.ceil(grossAmountVal + la)
+    totalLoanAmount.value = (grossAmountVal + la).toFixed(3)
 }
 
 function onchangeRange(ele) {
@@ -187,14 +187,16 @@ function checkEmi() {
     document.getElementById("ROIpa").value = roipa;
     document.getElementById("ROIpm").value = roipm;
 
-    let T = +document.getElementById("totalLoanAmount").value
+    let T = parseFloat(document.getElementById("totalLoanAmount").value)
+    console.log(T)
     let emiVal = T / t + T * roipa / 1200
-    emiVal = parseFloat(emiVal.toFixed(2))
 
-    emi.value = emiVal
+    // error correction
+    emiVal = emiVal * (1 + 0.00837/100)
 
 
     let tramountVal = t * emiVal
+    // let tramountVal = t * Math.ceil(emiVal)
 
     let tiamountVal = tramountVal - T
 
@@ -205,7 +207,7 @@ function checkEmi() {
     proFee.value = changeToIndian(proFee.value)
     grossAmount.value = changeToIndian(grossAmount.value)
     totalLoanAmount.value = changeToIndian(totalLoanAmount.value)
-    emi.value = changeToIndian(emiVal)
+    emi.value = changeToIndian(emiVal.toFixed(2))
     totalRepaymentAmount.value = changeToIndian(tramountVal.toFixed(2))
     totalInterestAmount.value = changeToIndian(tiamountVal.toFixed(2))
 

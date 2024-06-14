@@ -1,5 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Bree+Serif&family=Caveat:wght@400;700&family=Lobster&family=Monoton&family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Playfair+Display+SC:ital,wght@0,400;0,700;1,700&family=Playfair+Display:ital,wght@0,400;0,700;1,700&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&family=Source+Sans+Pro:ital,wght@0,400;0,700;1,700&family=Work+Sans:ital,wght@0,400;0,700;1,700&display=swap");
 
+/* * {
+    font-family: "bree serif" !important;
+} */
+
 label {
     margin-bottom: 0;
     margin-right: 5px;
@@ -13,7 +17,7 @@ label {
 
 .calculator-container {
     background-color: #f9fbfe;
-    padding-bottom: 50px;
+    padding-bottom: 150px;
 }
 
 
@@ -21,6 +25,7 @@ label {
 .heading {
     color: #264fa2;
     font-family: "Roboto";
+    font-family: "bree serif";
     font-size: 44px;
     font-weight: 500;
 }
