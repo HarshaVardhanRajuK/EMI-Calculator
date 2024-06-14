@@ -6,22 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
         integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous" />
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
-        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
-        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
-        crossorigin="anonymous"></script>
 
     <link rel="stylesheet" href="style.css" />
     
 </head>
 
 <body>
-    <div class="calculator-container pb-5">
+    <div class="calculator-container">
         <h1 class="heading text-center mt-4 mb-4">
             EMI CALCULATOR
             <span class="copyright">&copy;Korneli</span>
@@ -32,7 +23,7 @@
                 <div class="col-12 col-md-6 mb-4">
                     <p class="input-label mb-2">APPROVED LOAN AMOUNT</p>
                     <input oninput="changeErrFunc()" id="appLoanAmount" type="text" class="user-input" required/>
-                    <span id="error" class="error-message">* Required</span>
+                    <span id="error" class="error-message"></span>
                 </div>
 
                 <div class="col-12 col-md-12 mb-4">
@@ -52,7 +43,6 @@
                                 <input name="life-insurance" id="life-no" type="radio" class="user-input" value="false"/>
                             </div>
                         </div>
-                        <!-- <button class="button" onclick="CheckLifeAmount()">Check</button> -->
                         <input type="text" id="lifeAmount" disabled />
                             
                     </div>
@@ -75,7 +65,6 @@
                                 <input name="health-insurance" id="health-no" type="radio" class="user-input" value="false" />
                             </div>
                         </div>
-                        <!-- <button class="button" onclick="CheckHealthAmount()">Check</button> -->
                         <input type="text" id="healthAmount" disabled />
                     </div>
                 </div>
@@ -96,7 +85,6 @@
                 </div>
 
                 </div>
-            <!-- <button class="button" onclick="CalculateTotalLoan()">Calculate</button> -->
 
             <div class="row mt-4">
                 <div class="col-12 col-md-6 mb-4">
@@ -108,9 +96,7 @@
 
                 <div class="col-12 col-md-6 mb-4">
                     <p class="input-label mb-2">TENURE</p>
-                    <!-- <input id="tenure" type="text" class="user-input" /> -->
                      <select id="tenure">
-                        <!-- <option value="0">0</option> -->
                         <option value="27">27</option>
                         <option value="39">39</option>
                         <option value="51">51</option>

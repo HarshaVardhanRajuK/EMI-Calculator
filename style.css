@@ -13,6 +13,7 @@ label {
 
 .calculator-container {
     background-color: #f9fbfe;
+    padding-bottom: 50px;
 }
 
 
@@ -20,7 +21,7 @@ label {
 .heading {
     color: #264fa2;
     font-family: "Roboto";
-    font-size: 48px;
+    font-size: 44px;
     font-weight: 500;
 }
 
@@ -44,7 +45,7 @@ label {
 #lifeAmount, #healthAmount {
     font-weight: bold;
     text-align: right;
-    padding: 0 15px;
+    padding-left: 25px;
 }
 
 

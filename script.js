@@ -38,10 +38,36 @@ const ROIData = [
     { IRR: 33, Tenure: { 27: 19.10, 39: 19.78, 51: 20.51, 60: 21.06, 63: 21.13 } },
     { IRR: 34, Tenure: { 27: 19.74, 39: 20.46, 51: 21.24, 60: 21.82, 63: 21.89 } },
     { IRR: 35, Tenure: { 27: 20.39, 39: 21.15, 51: 21.97, 60: 22.59, 63: 22.66 } }
-  ];
-  
+];
+
+
 
 let loanInpEle = document.getElementById("appLoanAmount");
+let healthAmount = document.getElementById("healthAmount");
+let lifeAmount = document.getElementById("lifeAmount");
+let proFee = document.getElementById("processingFee")
+let grossAmount = document.getElementById("totalGrossAmount")
+let totalLoanAmount = document.getElementById("totalLoanAmount")
+let emi = document.getElementById("emiAmount")
+
+
+
+
+function changeToIndian(num) {
+    let [intPart, decPart] = num.toString().split(".")
+    
+    let last3 = intPart.slice(-3)
+    let other = intPart.slice(0, -3)
+    
+    const formattedNumber = other.replace(/\B(?=(\d{2})+(?!\d))/g, ",") + "," + last3;
+    
+    return decPart ? formattedNumber + '.' + decPart : formattedNumber;
+
+
+}
+
+
+
 
 function userRange(loanAmount) {
     let ligiRange = insuranceData.find(range => loanAmount >= range.min && loanAmount <= range.max)
@@ -54,7 +80,6 @@ function CheckLifeAmount() {
         'input[name="life-insurance"]:checked'
     );
 
-    let lifeAmount = document.getElementById("lifeAmount");
 
     if (lifeRadio.value === "false") {
         lifeAmount.value = 0;
@@ -71,10 +96,9 @@ function CheckLifeAmount() {
 }
 
 function CheckHealthAmount() {
-    
+
     const healthRadio = document.querySelector('input[name="health-insurance"]:checked');
-    
-    let healthAmount = document.getElementById("healthAmount");
+
 
     if (healthRadio.value === "false") {
         healthAmount.value = 0;
@@ -90,19 +114,21 @@ function CheckHealthAmount() {
 
 
 function CalculateTotalLoan() {
-    let la = +document.getElementById("appLoanAmount").value;
-    let li = +document.getElementById("lifeAmount").value
-    let gi = +document.getElementById("healthAmount").value
+    let la = parseInt(document.getElementById("appLoanAmount").value);
+    let li = parseInt(document.getElementById("lifeAmount").value)
+    let gi = parseInt(document.getElementById("healthAmount").value)
 
-    // console.log(la, li, gi)
 
     let finPulseReport = 499
 
-    let proFee = ( (la + li + gi + finPulseReport) * 0.0393) / (1-0.0393)
-    let grossAmount = proFee + li + gi
-    document.getElementById("processingFee").value = Math.ceil(proFee)
-    document.getElementById("totalGrossAmount").value = Math.ceil(grossAmount)
-    document.getElementById("totalLoanAmount").value = Math.ceil(grossAmount + la)
+    let proFeeVal = ((la + li + gi + finPulseReport) * 0.0393) / (1 - 0.0393)
+    let grossAmountVal = proFeeVal + li + gi
+
+    proFee.value = Math.ceil(proFeeVal)
+
+    grossAmount.value = Math.ceil(grossAmountVal)
+
+    totalLoanAmount.value = Math.ceil(grossAmountVal + la)
 }
 
 function onchangeRange(ele) {
@@ -111,14 +137,21 @@ function onchangeRange(ele) {
 }
 
 function handleInputs() {
-    let appLoanAmount = document.getElementById("appLoanAmount")
-
-    if (appLoanAmount.value == "" ) {
-        document.getElementById("error").style.display = "inline"
+    let errEle = document.getElementById("error")
+    if (loanInpEle.value == "") {
+        errEle.textContent = "* Required"
+        errEle.style.display = "inline"
+        return false
+    }
+    if (loanInpEle.value < 20000) {
+        errEle.textContent = "* Enter Valid Number"
+        errEle.style.display = "inline"
+        
         return false
     }
     return true
 }
+
 
 function checkEmi() {
     if (!handleInputs()) {
@@ -132,30 +165,35 @@ function checkEmi() {
     CalculateTotalLoan()
 
     let irr = parseInt(document.getElementById("irrVal").value)
-    
+
     let t = parseInt(document.getElementById("tenure").value)
-    console.log(irr, t)
 
     let roiTenObj = ROIData.find(ele => ele.IRR === irr).Tenure
-    console.log(roiTenObj)
 
 
     let roipa = roiTenObj[t]
 
-    console.log(roipa)
 
+    let roipm = roipa / 12
 
-    let roipm = roipa/12
-
-    console.log(roipm)
 
     document.getElementById("ROIpa").value = roipa;
     document.getElementById("ROIpm").value = roipm;
 
     let T = +document.getElementById("totalLoanAmount").value
-    let emi = T/t + T * roipa / 1200
+    let emiVal = T / t + T * roipa / 1200
+    emiVal = parseFloat(emiVal.toFixed(2))
 
-    document.getElementById("emiAmount").value = Math.floor(emi)
+    emi.value = emiVal
+
+
+    loanInpEle.value = changeToIndian(loanInpEle.value)
+    lifeAmount.value = changeToIndian(lifeAmount.value)
+    healthAmount.value = changeToIndian(healthAmount.value)
+    proFee.value = changeToIndian(proFee.value)
+    grossAmount.value = changeToIndian(grossAmount.value)
+    totalLoanAmount.value = changeToIndian(totalLoanAmount.value)
+    emi.value = changeToIndian(emiVal)
 
 }
 
