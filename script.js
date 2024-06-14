@@ -51,6 +51,7 @@ let totalLoanAmount = document.getElementById("totalLoanAmount")
 let emi = document.getElementById("emiAmount")
 let totalRepaymentAmount = document.getElementById("totalRepaymentAmount")
 let totalInterestAmount = document.getElementById("totalInterestAmount")
+let fpr = document.getElementById("FPR")
 
 
 
@@ -119,8 +120,17 @@ function CalculateTotalLoan() {
     let li = parseInt(document.getElementById("lifeAmount").value)
     let gi = parseInt(document.getElementById("healthAmount").value)
 
+    // let FPRdisplay = document.getElementById("FPRdisplay")
 
-    let finPulseReport = 499
+    let finPulseReport;
+
+    if (fpr.checked) {
+        finPulseReport = 499
+    }else {
+        finPulseReport = 0
+    }
+
+    // FPRdisplay.value = finPulseReport
 
     let proFeeVal = ((la + li + gi + finPulseReport) * 0.0393) / (1 - 0.0393)
     let grossAmountVal = proFeeVal + li + gi + finPulseReport

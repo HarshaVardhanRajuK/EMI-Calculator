@@ -1,8 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Bree+Serif&family=Caveat:wght@400;700&family=Lobster&family=Monoton&family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Playfair+Display+SC:ital,wght@0,400;0,700;1,700&family=Playfair+Display:ital,wght@0,400;0,700;1,700&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&family=Source+Sans+Pro:ital,wght@0,400;0,700;1,700&family=Work+Sans:ital,wght@0,400;0,700;1,700&display=swap");
 
-/* * {
-    font-family: "bree serif" !important;
-} */
+* {
+    overflow-x: hidden;
+}
 
 label {
     margin-bottom: 0;
@@ -41,16 +41,21 @@ label {
     display: flex;
     justify-content: start;
     align-items: center;
-    gap: 20px;
+    gap: 14px;
 }
 .radio-div input {
     width: 25px;
 }
 
-#lifeAmount, #healthAmount {
+#lifeAmount, #healthAmount, #FPRdisplay {
     font-weight: bold;
     text-align: left;
     padding-left: 25px;
+}
+
+#FPR {
+    width: 20px;
+    cursor: pointer;
 }
 
 
@@ -92,9 +97,11 @@ select {
 
 
 .copyright {
+
+    font-size: 17px;
     position: relative;
-    top: 6px;
-    font-size: 18px;
+    left: 157px;
+    bottom: 31px;
 }
 
 

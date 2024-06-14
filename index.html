@@ -15,7 +15,10 @@
     <div class="calculator-container">
         <h1 class="heading text-center mt-4 mb-4">
             EMI CALCULATOR
-            <span class="copyright">&copy;Korneli</span>
+            <div>
+
+                <span class="copyright">&copy;Korneli</span>
+            </div>
         </h1>
         <div class="container">
             <div class="row">
@@ -68,6 +71,15 @@
                         <input type="text" id="healthAmount" disabled />
                     </div>
                 </div>
+                <div class="col-12 col-md-12 mb-4">
+                    <p class="input-label mb-2">FPR</p>
+                    <div style="display: flex; gap: 10px;">
+YES/NO
+                        <input type="checkbox" id="FPR" checked>
+
+                        <!-- <input type="text" id="FPRdisplay" value="499" disabled /> -->
+                    </div>
+                </div>
 
                 <div class="col-12 col-md-6 mb-4">
                     <p class="input-label mb-2">PROCESSING FEE</p>
@@ -89,9 +101,11 @@
             <div class="row mt-4">
                 <div class="col-12 col-md-6 mb-4">
                     <p class="input-label mb-2">IRR</p>
-                    <input id="irr" type="range" min="15" max="35"  class="user-input" value="35" style="width: 50%;padding: 0px;cursor: pointer;" oninput="onchangeRange(this)"/>
 
                     <input id="irrVal" type="text" value="35" class="user-input" style="text-align: center;width: 100px;padding: 0px;">
+                    <br>
+                    <input id="irr" type="range" min="15" max="35"  class="user-input" value="35" style="width: 50%;padding: 0px;cursor: pointer;" oninput="onchangeRange(this)"/>
+                    
                 </div>
 
                 <div class="col-12 col-md-6 mb-4">
@@ -108,6 +122,11 @@
                 </div>
 
                 <div class="col-12 col-md-6 mb-4">
+                    <p class="input-label mb-2">EMI AMOUNT</p>
+                    <input id="emiAmount" type="text" class="user-input" disabled/>
+                </div>
+
+                <div class="col-12 col-md-6 mb-4">
                     <p class="input-label mb-2">ROI per Anum</p>
                     <input id="ROIpa" type="text" class="user-input" disabled/>
                 </div>
@@ -117,22 +136,15 @@
                     <input id="ROIpm" type="text" class="user-input" disabled/>
                 </div>
 
-
-                <div class="col-12 col-md-6 mb-4">
-                    <p class="input-label mb-2">EMI AMOUNT</p>
-                    <input id="emiAmount" type="text" class="user-input" disabled/>
-                </div>
-
-                <div class="col-12 col-md-6 mb-4">
-                    <p class="input-label mb-2">TOTAL REPAYMENT AMOUNT</p>
-                    <input id="totalRepaymentAmount" type="text" class="user-input" disabled/>
-                </div>
-
                 <div class="col-12 col-md-6 mb-4">
                     <p class="input-label mb-2">TOTAL INTEREST AMOUNT</p>
                     <input id="totalInterestAmount" type="text" class="user-input" disabled/>
                 </div>
-
+                
+                <div class="col-12 col-md-6 mb-4">
+                    <p class="input-label mb-2">TOTAL REPAYMENT AMOUNT</p>
+                    <input id="totalRepaymentAmount" type="text" class="user-input" disabled/>
+                </div>
                 
                 </div>
             <button class="button" id="checkEmi" onclick="checkEmi()">CALCULATE</button>
