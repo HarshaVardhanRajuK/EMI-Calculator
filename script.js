@@ -49,7 +49,8 @@ let proFee = document.getElementById("processingFee")
 let grossAmount = document.getElementById("totalGrossAmount")
 let totalLoanAmount = document.getElementById("totalLoanAmount")
 let emi = document.getElementById("emiAmount")
-
+let totalRepaymentAmount = document.getElementById("totalRepaymentAmount")
+let totalInterestAmount = document.getElementById("totalInterestAmount")
 
 
 
@@ -86,7 +87,7 @@ function CheckLifeAmount() {
         return;
     }
 
-    let loanAmount = +loanInpEle.value
+    let loanAmount = parseInt(loanInpEle.value)
 
     let ligiRange = userRange(loanAmount)
 
@@ -138,11 +139,17 @@ function onchangeRange(ele) {
 
 function handleInputs() {
     let errEle = document.getElementById("error")
+    // console.log(loanInpEle.value.split(",")[0] === loanInpEle.value, loanInpEle.value)
     if (loanInpEle.value == "") {
         errEle.textContent = "* Required"
         errEle.style.display = "inline"
         return false
     }
+
+    // if (!loanInpEle.value.split(",")[0] === loanInpEle.value) {
+    //     loanInpEle.value = loanInpEle.value.split(",").join("")
+    // }
+
     if (loanInpEle.value < 20000) {
         errEle.textContent = "* Enter Valid Number"
         errEle.style.display = "inline"
@@ -187,13 +194,20 @@ function checkEmi() {
     emi.value = emiVal
 
 
-    loanInpEle.value = changeToIndian(loanInpEle.value)
+    let tramountVal = t * emiVal
+
+    let tiamountVal = tramountVal - T
+
+
+    // loanInpEle.value = changeToIndian(loanInpEle.value)
     lifeAmount.value = changeToIndian(lifeAmount.value)
     healthAmount.value = changeToIndian(healthAmount.value)
     proFee.value = changeToIndian(proFee.value)
     grossAmount.value = changeToIndian(grossAmount.value)
     totalLoanAmount.value = changeToIndian(totalLoanAmount.value)
     emi.value = changeToIndian(emiVal)
+    totalRepaymentAmount.value = changeToIndian(tramountVal.toFixed(2))
+    totalInterestAmount.value = changeToIndian(tiamountVal.toFixed(2))
 
 }
 
