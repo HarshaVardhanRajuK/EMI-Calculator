@@ -1,10 +1,10 @@
-let insuranceData = JSON.parse(import.meta.env.VITE_insuranceData);
+let insuranceData = JSON.parse(import.meta.env.VITE_INSURANCEDATA);
 
-let ROIData = JSON.parse(import.meta.env.VITE_ROIData);
+let ROIData = JSON.parse(import.meta.env.VITE_ROIDATA);
 
-// const person = JSON.parse(import.meta.env.VITE_PERSON);
+const person = JSON.parse(import.meta.env.VITE_PERSON);
+console.log(person)
 
-console.log("ROIData");
 
 let loanInpEle = document.getElementById("appLoanAmount");
 let healthAmount = document.getElementById("healthAmount");
@@ -16,11 +16,9 @@ let emi = document.getElementById("emiAmount");
 let totalRepaymentAmount = document.getElementById("totalRepaymentAmount");
 let totalInterestAmount = document.getElementById("totalInterestAmount");
 let fpr = document.getElementById("FPR");
-console.log(fpr);
 
 function changeToIndian(num) {
   let [intPart, decPart] = num.toString().split(".");
-  // console.log()
 
   if (num == 0) {
     return 0;
@@ -82,7 +80,6 @@ function CalculateTotalLoan() {
   let li = parseInt(document.getElementById("lifeAmount").value);
   let gi = parseInt(document.getElementById("healthAmount").value);
 
-  // let FPRdisplay = document.getElementById("FPRdisplay")
 
   let finPulseReport;
 
@@ -91,8 +88,6 @@ function CalculateTotalLoan() {
   } else {
     finPulseReport = 0;
   }
-
-  // FPRdisplay.value = finPulseReport
 
   let proFeeVal = ((la + li + gi + finPulseReport) * 0.0393) / (1 - 0.0393);
   let grossAmountVal = proFeeVal + li + gi + finPulseReport;
@@ -111,16 +106,11 @@ function onchangeRange(ele) {
 
 function handleInputs() {
   let errEle = document.getElementById("error");
-  // console.log(loanInpEle.value.split(",")[0] === loanInpEle.value, loanInpEle.value)
   if (loanInpEle.value == "") {
     errEle.textContent = "* Required";
     errEle.style.display = "inline";
     return false;
   }
-
-  // if (!loanInpEle.value.split(",")[0] === loanInpEle.value) {
-  //     loanInpEle.value = loanInpEle.value.split(",").join("")
-  // }
 
   if (loanInpEle.value < 20000) {
     errEle.textContent = "* Enter Valid Number";
@@ -155,7 +145,7 @@ function checkEmi() {
   document.getElementById("ROIpm").value = roipm;
 
   let T = parseFloat(document.getElementById("totalLoanAmount").value);
-  // console.log(T);
+
   let emiVal = T / t + (T * roipa) / 1200;
 
   // error correction
@@ -166,7 +156,6 @@ function checkEmi() {
 
   let tiamountVal = tramountVal - T;
 
-  // loanInpEle.value = changeToIndian(loanInpEle.value)
   lifeAmount.value = changeToIndian(lifeAmount.value);
   healthAmount.value = changeToIndian(healthAmount.value);
   proFee.value = changeToIndian(proFee.value);
