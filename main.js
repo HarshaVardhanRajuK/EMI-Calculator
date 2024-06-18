@@ -1,9 +1,10 @@
+const person = JSON.parse(import.meta.env.VITE_PERSON);
+console.log(person)
+
 let insuranceData = JSON.parse(import.meta.env.VITE_INSURANCEDATA);
 
 let ROIData = JSON.parse(import.meta.env.VITE_ROIDATA);
 
-const person = JSON.parse(import.meta.env.VITE_PERSON);
-console.log(person)
 
 
 let loanInpEle = document.getElementById("appLoanAmount");
