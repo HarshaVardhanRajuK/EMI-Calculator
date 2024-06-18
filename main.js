@@ -1,4 +1,5 @@
 const person = JSON.parse(import.meta.env.VITE_PERSON);
+console.log("person")
 console.log(person)
 
 let insuranceData = JSON.parse(import.meta.env.VITE_INSURANCEDATA);
