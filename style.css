@@ -1,108 +1,124 @@
 @import url("https://fonts.googleapis.com/css2?family=Bree+Serif&family=Caveat:wght@400;700&family=Lobster&family=Monoton&family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Playfair+Display+SC:ital,wght@0,400;0,700;1,700&family=Playfair+Display:ital,wght@0,400;0,700;1,700&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&family=Source+Sans+Pro:ital,wght@0,400;0,700;1,700&family=Work+Sans:ital,wght@0,400;0,700;1,700&display=swap");
 
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
 * {
-    overflow-x: hidden;
+  overflow-x: hidden;
+  font-family: "Poppins", sans-serif !important;
+  font-weight: 600;
 }
 
 label {
-    margin-bottom: 0;
-    margin-right: 5px;
-    cursor: pointer;
+  margin-bottom: 0;
+  margin-right: 5px;
+  cursor: pointer;
 }
 
 .center {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .calculator-container {
-    background-color: #f9fbfe;
-    padding-bottom: 150px;
+  background-color: #f9fbfe;
+  padding-bottom: 150px;
 }
 
-
-
 .heading {
-    color: #264fa2;
-    font-family: "Roboto";
-    font-family: "bree serif";
-    font-size: 44px;
-    font-weight: 500;
+  color: #264fa2;
+  font-family: "Roboto";
+  font-family: "bree serif" !important;
+  font-size: 44px;
+  font-weight: 500;
 }
 
 .input-label {
-    color: #7b8794;
-    font-family: "Roboto";
-    font-size: 14px;
-    
+  color: #7b8794;
+  font-family: "Roboto";
+  font-size: 14px;
 }
 
 .radio-div {
-    display: flex;
-    justify-content: start;
-    align-items: center;
-    gap: 14px;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: 14px;
 }
 .radio-div input {
-    width: 25px;
+  width: 25px;
 }
 
-#lifeAmount, #healthAmount, #FPRdisplay {
-    font-weight: bold;
-    text-align: left;
-    padding-left: 25px;
-    margin-left: 3px;
-    /* flex: 1; */
+#lifeAmount,
+#healthAmount,
+#FPRdisplay {
+  font-weight: bold;
+  text-align: left;
+  padding-left: 25px;
+  margin-left: 3px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #cbd2d9;
+  border-radius: 6px;
 }
 
 #FPR {
-    width: 20px;
-    cursor: pointer;
+  width: 20px;
+  cursor: pointer;
 }
 
-
 .user-input {
-    height: 40px;
-    width: 100%;
-    border-style: solid;
-    border-width: 1px;
-    border-color: #cbd2d9;
-    border-radius: 4px;
-    padding-left: 12px;
-    font-weight: bold;
+  height: 40px;
+  width: 100%;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #cbd2d9;
+  border-radius: 6px;
+  padding-left: 12px;
+  font-weight: bold;
+  margin-bottom: 3px;
 }
 
 .button {
-    background-color: #264fa2;
-    color: white;
-    font-family: "Roboto";
-    font-size: 18px;
-    border-radius: 4px;
-    padding: 8px;
+  background-color: #264fa2;
+  color: white;
+  font-family: "Roboto";
+  font-size: 18px;
+  border-radius: 4px;
+  padding: 8px;
 }
 
 .error-message {
-    display: none;
+  display: none;
 
-    color: #cf1124;
-    font-family: "Roboto";
-    font-size: 14px;
-    font-weight: 500;
-    margin-top: 10px;
+  color: #cf1124;
+  font-family: "Roboto";
+  font-size: 14px;
+  font-weight: 500;
+  margin-top: 10px;
 }
 
 select {
-    padding: 5px 10px;
-    font-size: 20px;
-    font-weight: 500;
+  padding: 5px 10px;
+  font-size: 20px;
+  font-weight: 500;
+  text-align: center;
+  cursor: pointer;
+  width: 150px;
+  height: 45px;
+  border-radius: 6px;
 }
-
+select option {
+  text-align: center;
+}
 
 .copyright {
-
-    font-size: 17px;
-    position: relative;
-    left: 157px;
-    bottom: 31px;
+    font-family: "bree serif" !important;
+  font-size: 17px;
+  position: relative;
+  left: 157px;
+  bottom: 31px;
 }
 
+input {
+    font-family: Roboto !important;
+}
