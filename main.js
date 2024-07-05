@@ -1,6 +1,6 @@
 let insuranceData = JSON.parse(import.meta.env.VITE_INSURANCEDATA);
-
 let ROIData = JSON.parse(import.meta.env.VITE_ROIDATA);
+
 
 let loanInpEle = document.getElementById("appLoanAmount");
 let healthAmount = document.getElementById("healthAmount");
@@ -151,8 +151,8 @@ function checkEmi() {
 
   let tiamountVal = tramountVal - T;
 
-//   let now = new Date(2024, 7, 25);
-    let now = new Date();
+  //   let now = new Date(2024, 7, 25);
+  let now = new Date();
 
   let currentDay = now.getDate();
   let currentMonth = now.getMonth() + 1;
