@@ -86,8 +86,7 @@ async function checkEmi() {
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify(inputData),
-    credentials: "include"
+    body: JSON.stringify(inputData)
   }
 
   const response = await fetch("https://vercel-node-virid.vercel.app/calculate", options)
