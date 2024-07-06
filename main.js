@@ -92,7 +92,7 @@ async function checkEmi() {
     credentials: "include"
   }
 
-  const response = await fetch("https://vercel-node-5wvxbvah4-harshavardhanrajuks-projects.vercel.app/calculate", options)
+  const response = await fetch("https://vercel-node-virid.vercel.app/calculate", options)
 
   const data = await response.json()
 
