@@ -86,8 +86,6 @@ async function checkEmi() {
     headers: {
       "Content-Type": "application/json",
     },
-    'Access-Control-Allow-Credentials': true,
-    'Access-Control-Allow-Origin': 'https://emi-calculator-omega.vercel.app',
     body: JSON.stringify(inputData),
     credentials: "include"
   }
