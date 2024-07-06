@@ -4,23 +4,22 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/docLogo.avif" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    
+
     <link
-    rel="stylesheet"
-    href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
-    crossorigin="anonymous"
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+      crossorigin="anonymous"
     />
-    
+
     <link rel="stylesheet" href="./style.css" />
-    
+
     <title>EMI Calculator</title>
 
     <script type="module" src="main.js" defer></script>
-
   </head>
   <body>
-    <div id="app" class="calculator-container">
+    <div class="calculator-container">
       <h1 class="heading text-center mt-4 mb-4">
         EMI CALCULATOR
         <div>
@@ -29,7 +28,7 @@
       </h1>
       <div class="container">
         <div class="row">
-          <div class="col-12 col-md-6 mb-4">
+          <div class="col-12 mb-4">
             <p class="input-label mb-2">APPROVED LOAN AMOUNT</p>
             <input
               oninput="changeErrFunc()"
@@ -41,103 +40,106 @@
             <span id="error" class="error-message"></span>
           </div>
 
-          <div class="col-12 col-md-12 mb-4">
-            <p class="input-label mb-2">LIFE INSURANCE</p>
-            <div style="display: flex; gap: 10px">
-              <div class="radio-div">
-                <div class="center">
-                  <label for="life-yes">YES</label>
-                  <input
-                    name="life-insurance"
-                    id="life-yes"
-                    type="radio"
-                    class="user-input form-control"
-                    value="true"
-                    checked
-                  />
-                </div>
-                <div class="center">
-                  <label for="life-no">NO</label>
-                  <input
-                    name="life-insurance"
-                    id="life-no"
-                    type="radio"
-                    class="user-input"
-                    value="false"
-                  />
-                </div>
+          <div class="col-12 col-md-6 mb-2">
+            <p class="input-label text-center">LIFE INSURANCE</p>
+            <div class="radio-div">
+              <div class="d-flex justify-content-center w-50" style="gap: 6px;">
+              <div class="center">
+                <label for="life-yes">YES</label>
+                <input
+                  name="life-insurance"
+                  id="life-yes"
+                  type="radio"
+                  class="user-input"
+                  value="true"
+                  checked
+                />
               </div>
-              <input type="text" id="lifeAmount" readOnly />
+              <div class="center">
+                <label for="life-no">NO</label>
+                <input
+                  name="life-insurance"
+                  id="life-no"
+                  type="radio"
+                  class="user-input"
+                  value="false"
+                />
+              </div>
+            </div>
+            
+              <input type="text" id="lifeAmount" readonly />
             </div>
           </div>
 
-          <div class="col-12 col-md-12 mb-4">
-            <p class="input-label mb-2">HEALTH INSURANCE</p>
-            <div style="display: flex; gap: 10px">
-              <div class="radio-div">
-                <div class="center">
-                  <label for="health-yes">YES</label>
-                  <input
-                    name="health-insurance"
-                    id="health-yes"
-                    type="radio"
-                    class="user-input"
-                    value="true"
-                    checked
-                  />
-                </div>
-                <div class="center">
-                  <label for="health-no">NO</label>
-                  <input
-                    name="health-insurance"
-                    id="health-no"
-                    type="radio"
-                    class="user-input"
-                    value="false"
-                  />
-                </div>
+          <div class="col-12 col-md-6 mb-2">
+            <p class="input-label text-center">HEALTH INSURANCE</p>
+
+            <div class="radio-div">
+              <div class="d-flex justify-content-center w-50" style="gap: 6px;">
+
+              
+              <div class="center">
+                <label for="health-yes">YES</label>
+                <input
+                  name="health-insurance"
+                  id="health-yes"
+                  type="radio"
+                  class="user-input"
+                  value="true"
+                  checked
+                />
               </div>
-              <input type="text" id="healthAmount" readOnly />
+              <div class="center">
+                <label for="health-no">NO</label>
+                <input
+                  name="health-insurance"
+                  id="health-no"
+                  type="radio"
+                  class="user-input"
+                  value="false"
+                />
+              </div>
+            </div>
+              <input type="text" id="healthAmount" readonly />
             </div>
           </div>
-          <div class="col-12 col-md-12 mb-4">
+
+          <div class="col-6 mb-2">
             <p class="input-label mb-2">FPR</p>
             <div style="display: flex; gap: 10px">
               YES/NO
               <input type="checkbox" id="FPR" checked />
-
-              <!-- <input type="text" id="FPRdisplay" value="499" readOnly /> -->
             </div>
           </div>
 
-          <div class="col-12 col-md-6 mb-4">
+          <div class="col-6 mb-2">
             <p class="input-label mb-2">PROCESSING FEE</p>
-            <input id="processingFee" type="text" class="user-input" readOnly />
+            <input id="processingFee" type="text" class="user-input" readonly />
           </div>
 
-          <div class="col-12 col-md-6 mb-4">
-            <p class="input-label mb-2">TOTAL GROSS-UP AMOUNT</p>
+          <div class="col-6 mb-2">
+            <p class="input-label mb-2">TOTAL GROSS AMOUNT</p>
             <input
               id="totalGrossAmount"
               type="text"
               class="user-input"
-              readOnly
+              readonly
             />
           </div>
 
-          <div class="col-12 col-md-6 mb-4">
+          <div class="col-6 mb-2">
             <p class="input-label mb-2">TOTAL LOAN AMOUNT</p>
             <input
               id="totalLoanAmount"
               type="text"
               class="user-input"
-              readOnly
+              readonly
             />
           </div>
         </div>
 
-        <div class="row mt-4">
-          <div class="col-12 col-md-6 mb-4">
+        <div class="row">
+          <div class="col-6">
             <p class="input-label mb-2">IRR</p>
 
             <input
@@ -155,12 +157,12 @@
               max="35"
               class="user-input"
               value="35"
-              style="width: 75%; padding: 0px; cursor: pointer"
+              style="width: 100%; padding: 0px; cursor: pointer"
               oninput="onchangeRange(this)"
             />
           </div>
 
-          <div class="col-12 col-md-6 mb-4">
+          <div class="col-4 d-flex flex-column align-items-center">
             <p class="input-label mb-2">TENURE</p>
             <select id="tenure" style="cursor: pointer">
               <option value="27">27</option>
@@ -172,54 +174,51 @@
             <span id="error2" class="error-message">* Required</span>
           </div>
 
-          <div class="col-12 col-md-6 mb-4">
+          <div class="col-6 mb-2">
             <p class="input-label mb-2">EMI AMOUNT</p>
-            <input id="emiAmount" type="text" class="user-input" readOnly />
+            <input id="emiAmount" type="text" class="user-input" readonly />
           </div>
 
-          <div class="col-12 col-md-6 mb-4">
+          <div class="col-6 mb-2">
             <p class="input-label mb-2">ROI per Anum</p>
-            <input id="ROIpa" type="text" class="user-input" readOnly />
+            <input id="ROIpa" type="text" class="user-input" readonly />
           </div>
 
-          <div class="col-12 col-md-6 mb-4">
+          <div class="col-6 mb-2">
             <p class="input-label mb-2">ROI per Month</p>
-            <input id="ROIpm" type="text" class="user-input" readOnly />
+            <input id="ROIpm" type="text" class="user-input" readonly />
           </div>
 
-          <div class="col-12 col-md-6 mb-4">
+          <div class="col-6 mb-2">
             <p class="input-label mb-2">TOTAL INTEREST AMOUNT</p>
             <input
               id="totalInterestAmount"
               type="text"
               class="user-input"
-              readOnly
+              readonly
             />
           </div>
 
-          <div class="col-12 col-md-6 mb-4">
-            <p class="input-label mb-2">TOTAL REPAYMENT AMOUNT</p>
+          <div class="col-6 mb-4">
+            <p class="input-label mb-2">TOTAL REPAYMENT</p>
             <input
               id="totalRepaymentAmount"
               type="text"
               class="user-input"
-              readOnly
+              readonly
             />
           </div>
-          <!-- extra -->
-          <div class="col-12 col-md-6 mb-4">
+
+          <div class="col-6 mb-4">
             <p class="input-label mb-2">BROKEN CHARGES</p>
-            <input
-              id="broken"
-              type="text"
-              class="user-input"
-              readOnly
-            />
+            <input id="broken" type="text" class="user-input" readonly />
           </div>
         </div>
-        <button class="button" id="checkEmi" onclick="checkEmi()">
-          CALCULATE
-        </button>
+        <div class="text-center py-4">
+          <button class="button" id="checkEmi" onclick="checkEmi()">
+            CALCULATE
+          </button>
+        </div>
       </div>
     </div>
   </body>

@@ -6,6 +6,8 @@
   overflow-x: hidden;
   font-family: "Poppins", sans-serif !important;
   font-weight: 600;
+  margin: 0;
+  padding: 0;
 }
 
 label {
@@ -21,28 +23,28 @@ label {
 
 .calculator-container {
   background-color: #f9fbfe;
-  padding-bottom: 150px;
+  padding-bottom: 40px;
 }
 
 .heading {
   color: #264fa2;
-  font-family: "Roboto";
   font-family: "bree serif" !important;
-  font-size: 44px;
+  font-size: 36px;
   font-weight: 500;
 }
 
 .input-label {
+  margin-bottom: 0 !important;
   color: #7b8794;
   font-family: "Roboto";
-  font-size: 14px;
+  font-size: 12px;
 }
 
 .radio-div {
   display: flex;
   justify-content: start;
   align-items: center;
-  gap: 14px;
+  gap: 12px;
 }
 .radio-div input {
   width: 25px;
@@ -51,14 +53,17 @@ label {
 #lifeAmount,
 #healthAmount,
 #FPRdisplay {
+  flex: 1;
+  height: 40px;
   font-weight: bold;
   text-align: left;
-  padding-left: 25px;
+  padding-left: 10px;
   margin-left: 3px;
   border-style: solid;
   border-width: 1px;
   border-color: #cbd2d9;
   border-radius: 6px;
+  font-size: 14px;
 }
 
 #FPR {
@@ -69,22 +74,41 @@ label {
 .user-input {
   height: 40px;
   width: 100%;
-  border-style: solid;
-  border-width: 1px;
-  border-color: #cbd2d9;
+  border: 1px solid #cbd2d9;
   border-radius: 6px;
   padding-left: 12px;
   font-weight: bold;
   margin-bottom: 3px;
+  font-size: 14px;
 }
 
-.button {
+  .button {
+    padding: 8px 16px;
+    font-size: 18px;
+    text-align: center;
+    cursor: pointer;
+  outline: none;
+  color: #fff;
   background-color: #264fa2;
-  color: white;
-  font-family: "Roboto";
-  font-size: 18px;
-  border-radius: 4px;
-  padding: 8px;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 7px 6px 18px 1px rgba(0, 0, 0, 0.24); 
+}
+
+.button:hover {
+  background-color: #3e76e7;
+}
+
+.button:active {
+  border: none !important;
+  background-color: #264fa2;
+  box-shadow: 3px 2px 15px 1px rgba(0, 0, 0, 0.24); 
+  transform: scale(0.95);
+  transition: all 0.05s ease-in-out;
+}
+.button:focus {
+  outline: none;
+  border: none;
 }
 
 .error-message {
@@ -103,20 +127,25 @@ select {
   font-weight: 500;
   text-align: center;
   cursor: pointer;
-  width: 150px;
+  width: 100%;
   height: 45px;
   border-radius: 6px;
+  border: 1px solid #cbd2d9;
+
+  font-family: Roboto;
 }
 select option {
   text-align: center;
+  font-family: Roboto;
 }
 
 .copyright {
-    font-family: "bree serif" !important;
-  font-size: 17px;
-  position: relative;
-  left: 157px;
-  bottom: 31px;
+  font-family: "bree serif" !important;
+    font-size: 14px;
+    position: relative;
+    left: 157px;
+    bottom: 22px;
+  
 }
 
 input {
