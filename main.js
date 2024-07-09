@@ -88,7 +88,6 @@ async function fetchFunc() {
     };
 
     const url = import.meta.env.VITE_URL;
-    console.log(url);
 
     const response = await fetch(url, options);
 
