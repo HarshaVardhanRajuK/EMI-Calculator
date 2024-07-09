@@ -35,7 +35,7 @@
             <input
               oninput="changeErrFunc()"
               id="appLoanAmount"
-              type="text"
+              type="number"
               class="user-input form-control"
               required
             />
@@ -219,9 +219,7 @@
           </div>
         </div>
         <div class="text-center py-4">
-          <button class="button" id="checkEmi" onclick="checkEmi()">
-            CALCULATE
-          </button>
+          <button class="button" id="checkEmi" onclick="debouncedClick(this)" >CALCULATE</button>
         </div>
       </div>
     </div>
