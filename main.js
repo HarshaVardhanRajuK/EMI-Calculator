@@ -1,3 +1,5 @@
+import { inject } from "@vercel/analytics"
+
 // request elements
 const loanInpEle = document.getElementById("appLoanAmount");
 const lifeRadio = document.querySelector(
@@ -161,3 +163,5 @@ window.checkEmi = checkEmi;
 
 window.handleInputs = handleInputs;
 window.changeErrFunc = changeErrFunc;
+
+inject({debug: false})
