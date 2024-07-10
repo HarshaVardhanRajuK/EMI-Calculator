@@ -38,7 +38,7 @@ function handleInputs() {
     return false;
   }
 
-  if (loanInpEle.value < 20000 || loanInpuEle.value > 1150000) {
+  if (loanInpEle.value < 20000 || loanInpEle.value > 1150000) {
     errEle.textContent = "* Enter Valid Number";
     errEle.style.display = "inline";
 
