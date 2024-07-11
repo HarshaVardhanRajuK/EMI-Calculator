@@ -25,7 +25,7 @@ const totalInterestAmountEle = document.getElementById("totalInterestAmount");
 const totalRepaymentAmountEle = document.getElementById("totalRepaymentAmount");
 const broken = document.getElementById("broken");
 
-const button = document.getElementById("checkEmi");
+const url = import.meta.env.VITE_URL;
 
 function onchangeRange(ele) {
   let irrVal = document.getElementById("irrVal");
@@ -70,30 +70,52 @@ function indianFormat(num, dec=3) {
     : indianFormattedNumber;
 }
 
+
 async function fetchFunc() {
   try {
+
     const inputData = {
       approvedLoanAmount: parseInt(loanInpEle.value),
       lifeRadio: lifeRadio.checked,
       healthRadio: healthRadio.checked,
       fpr: fpr.checked,
       irr: parseInt(irrEle.value),
-      tenure: parseInt(tenureEle.value),
+      tenure: parseInt(tenureEle.value)
     };
 
-    const options = {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(inputData),
-    };
+    const cacheKey = JSON.stringify(inputData)
+    const cacheVersion = 'v1';
 
-    const url = import.meta.env.VITE_URL;
+    let cachedData = localStorage.getItem(cacheKey);
 
-    const response = await fetch(url, options);
+    let data;
 
-    const data = await response.json();
+    if (cachedData) {
+      cachedData = JSON.parse(cachedData)
+      
+      if (cachedData.v === cacheVersion) {
+        data = cachedData.data;
+      }else {
+        localStorage.removeItem(cacheKey)
+      }
+    }
+    
+    if (!data) {
+      
+      const options = {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: cacheKey,
+      };
+
+      const response = await fetch(url, options);
+
+      data = await response.json();
+
+      localStorage.setItem( cacheKey, JSON.stringify({data, v: "v1"}) )
+    }
 
     const {
       lifeAmount,
@@ -128,8 +150,6 @@ async function fetchFunc() {
 function changeErrFunc() {
   document.getElementById("error").style.display = "none";
 }
-
-
 
 const debouncedClick = (e) => {
 
