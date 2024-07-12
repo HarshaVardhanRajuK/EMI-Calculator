@@ -72,7 +72,6 @@ function indianFormat(num, dec=3) {
     : indianFormattedNumber;
 }
 
-
 async function fetchFunc() {
   try {
     buttonText.classList.add("hidden")
@@ -85,14 +84,14 @@ async function fetchFunc() {
       irr: parseInt(irrEle.value),
       tenure: parseInt(tenureEle.value)
     };
-
+    
     const cacheKey = JSON.stringify(inputData)
     const cacheVersion = 'v1';
-
+    
     let cachedData = localStorage.getItem(cacheKey);
-
+    
     let data;
-
+    
     if (cachedData) {
       cachedData = JSON.parse(cachedData)
       
@@ -100,6 +99,7 @@ async function fetchFunc() {
         data = cachedData.data;
       }else {
         localStorage.removeItem(cacheKey)
+        
       }
     }
     
@@ -114,9 +114,9 @@ async function fetchFunc() {
       };
 
       const response = await fetch(url, options);
-
+      
       data = await response.json();
-
+      
       localStorage.setItem( cacheKey, JSON.stringify({data, v: "v1"}) )
     }
     
