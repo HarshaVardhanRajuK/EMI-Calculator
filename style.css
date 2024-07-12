@@ -66,6 +66,7 @@ label {
 
 #FPR {
   width: 20px;
+  height: 20px;
   cursor: pointer;
 }
 
@@ -115,7 +116,7 @@ label {
 
   color: #cf1124;
   font-family: "Roboto";
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 500;
   margin-top: 10px;
 }
