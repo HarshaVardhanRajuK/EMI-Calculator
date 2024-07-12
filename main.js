@@ -24,6 +24,8 @@ const ROIpmEle = document.getElementById("ROIpm");
 const totalInterestAmountEle = document.getElementById("totalInterestAmount");
 const totalRepaymentAmountEle = document.getElementById("totalRepaymentAmount");
 const broken = document.getElementById("broken");
+const spinner = document.querySelector(".span")
+const buttonText = document.querySelector(".button-text")
 
 const url = import.meta.env.VITE_URL;
 
@@ -73,7 +75,8 @@ function indianFormat(num, dec=3) {
 
 async function fetchFunc() {
   try {
-
+    buttonText.classList.add("hidden")
+    spinner.classList.remove("hidden")
     const inputData = {
       approvedLoanAmount: parseInt(loanInpEle.value),
       lifeRadio: lifeRadio.checked,
@@ -116,6 +119,9 @@ async function fetchFunc() {
 
       localStorage.setItem( cacheKey, JSON.stringify({data, v: "v1"}) )
     }
+    
+    buttonText.classList.remove("hidden")
+    spinner.classList.add("hidden")
 
     const {
       lifeAmount,
