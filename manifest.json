@@ -1,0 +1,29 @@
+{
+    "name": "EMI Calcy",
+    "short_name": "EMI_Calcy",
+    "description": "EMI Calcy by harshaDev",
+    "start_url": ".",
+    "display": "standalone",
+    "background_color": "red",
+    "theme_color": "blue",
+    "orientation": "portrait-primary",
+    "screenshots": [
+        {
+         "src": "./PwaScreenshot.png",
+          "sizes": "385x823",
+          "type": "image/png",
+          "form_factor": "narrow"
+        },
+        {
+         "src": "./PwaScreenshot.png",
+          "sizes": "385x823",
+          "type": "image/png",
+          "form_factor": "wide"
+        }
+    ],
+    "icons": [{
+        "src": "./logo.png",
+        "type": "image/png",
+        "sizes": "2000x2000"
+    }]
+}
