@@ -1,4 +1,5 @@
 import { inject } from "@vercel/analytics";
+import { injectSpeedInsights } from '@vercel/speed-insights';
 
 // request elements
 const loanInpEle = document.getElementById("appLoanAmount");
@@ -373,3 +374,4 @@ window.handleInputs = handleInputs;
 window.changeErrFunc = changeErrFunc;
 
 inject({ debug: false });
+injectSpeedInsights();
