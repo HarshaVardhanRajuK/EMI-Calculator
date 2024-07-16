@@ -208,7 +208,7 @@ function CheckLifeAndHealthAmount(lifeRadio, healthRadio, loanAmount) {
 function getBrokenCharges(tla) {
   let brokenChargesValue = null;
 
-  let now = new Date(2024, 8, 1);
+  let now = new Date();
 
   let currentDay = now.getDate();
   let currentMonth = now.getMonth() + 1;
