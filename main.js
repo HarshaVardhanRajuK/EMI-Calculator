@@ -208,7 +208,7 @@ function CheckLifeAndHealthAmount(lifeRadio, healthRadio, loanAmount) {
 function getBrokenCharges(tla) {
   let brokenChargesValue = null;
 
-  let now = new Date();
+  let now = new Date(2024, 8, 1);
 
   let currentDay = now.getDate();
   let currentMonth = now.getMonth() + 1;
@@ -230,7 +230,9 @@ function getBrokenCharges(tla) {
     total_seconds = parseInt(Math.floor(diff / 1000));
     total_minutes = parseInt(Math.floor(total_seconds / 60));
     total_hours = parseInt(Math.floor(total_minutes / 60));
-    days = parseInt(Math.floor(total_hours / 24));
+    days = parseInt(Math.round(total_hours / 24));
+
+    console.log(days)
 
     if (days === 0) {
       days++;
