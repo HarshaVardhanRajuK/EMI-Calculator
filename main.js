@@ -213,7 +213,7 @@ function getBrokenCharges(tla) {
   let currentDay = now.getDate();
   let currentMonth = now.getMonth() + 1;
   let currentYear = now.getFullYear();
-
+  
   if (currentDay > 15 || currentDay < 2) {
     let nextMonth;
 
@@ -222,11 +222,11 @@ function getBrokenCharges(tla) {
     } else if (currentDay < 2) {
       nextMonth = new Date(currentYear, currentMonth - 1, 2);
     }
-
+    
     let diff = nextMonth - now;
-
+    
     let days, total_hours, total_minutes, total_seconds;
-
+    
     total_seconds = parseInt(Math.floor(diff / 1000));
     total_minutes = parseInt(Math.floor(total_seconds / 60));
     total_hours = parseInt(Math.floor(total_minutes / 60));
@@ -236,7 +236,7 @@ function getBrokenCharges(tla) {
       days++;
     }
 
-    brokenChargesValue = (irr / (365 * 100)) * tla * days;
+    brokenChargesValue = (irr.value / (365 * 100)) * tla * days;
   } else {
     brokenChargesValue = 0;
   }
