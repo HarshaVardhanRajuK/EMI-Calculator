@@ -1,5 +1,5 @@
 import { inject } from "@vercel/analytics";
-import { injectSpeedInsights } from '@vercel/speed-insights';
+import { injectSpeedInsights } from "@vercel/speed-insights";
 
 // request elements
 const loanInpEle = document.getElementById("appLoanAmount");
@@ -121,11 +121,11 @@ document.getElementById("life-no").addEventListener("change", updateLifeRadio);
 
 // ----------------------------------------------------- //
 
-fpr.addEventListener('click', (e) => {
-  if(handleInputs()) {
-    fetchFunc()
+fpr.addEventListener("click", (e) => {
+  if (handleInputs()) {
+    fetchFunc();
   }
-})
+});
 
 // ----------------------------------------------------- //
 
@@ -209,12 +209,12 @@ function getBrokenCharges(tla) {
   let brokenChargesValue = null;
 
   let now = new Date();
-  now.setHours(0,0,0,0)
+  now.setHours(0, 0, 0, 0);
 
   let currentDay = now.getDate();
   let currentMonth = now.getMonth() + 1;
   let currentYear = now.getFullYear();
-  
+
   if (currentDay > 15 || currentDay < 2) {
     let nextMonth;
 
@@ -223,15 +223,17 @@ function getBrokenCharges(tla) {
     } else if (currentDay < 2) {
       nextMonth = new Date(currentYear, currentMonth - 1, 2);
     }
-    
+
     let diff = nextMonth - now;
-    
+
     let days, total_hours, total_minutes, total_seconds;
-    
+
     total_seconds = parseInt(Math.floor(diff / 1000));
     total_minutes = parseInt(Math.floor(total_seconds / 60));
     total_hours = parseInt(Math.floor(total_minutes / 60));
     days = parseInt(Math.round(total_hours / 24));
+
+    console.log(days);
 
     if (days === 0) {
       days++;
@@ -248,7 +250,6 @@ function getBrokenCharges(tla) {
 // ----------------------------------------------------- //
 
 function calculate(inputData) {
-
   let { approvedLoanAmount, lifeRadio, healthRadio, fpr, irr, tenure } =
     inputData;
 
