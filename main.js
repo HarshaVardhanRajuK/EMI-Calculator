@@ -1,5 +1,5 @@
-import { inject } from "@vercel/analytics";
-import { injectSpeedInsights } from "@vercel/speed-insights";
+// import { inject } from "@vercel/analytics";
+// import { injectSpeedInsights } from "@vercel/speed-insights";
 
 // request elements
 const loanInpEle = document.getElementById("appLoanAmount");
@@ -23,7 +23,8 @@ const spinner = document.querySelector(".span");
 const buttonText = document.querySelector(".button-text");
 
 const insuranceData = JSON.parse(import.meta.env.VITE_INSURANCEDATA);
-const ROIData = JSON.parse(import.meta.env.VITE_ROIDATA);
+// console.log(insuranceData)
+// const ROIData = JSON.parse(import.meta.env.VITE_ROIDATA);
 
 // ----------------------------------------------------- //
 
@@ -233,8 +234,6 @@ function getBrokenCharges(tla) {
     total_hours = parseInt(Math.floor(total_minutes / 60));
     days = parseInt(Math.round(total_hours / 24));
 
-    console.log(days);
-
     if (days === 0) {
       days++;
     }
@@ -275,9 +274,13 @@ function calculate(inputData) {
 
   let totalLoanAmount = totalGrossAmount + approvedLoanAmount;
 
-  let roiTenObj = ROIData.find((ele) => ele.IRR === irr).Tenure;
+  // let roiTenObj = ROIData.find((ele) => ele.IRR === irr).Tenure;
 
-  let ROIpa = roiTenObj[tenure];
+  // let ROIpa = roiTenObj[tenure];
+
+  let ROIpa = ( ( ( ( (irr/1200) * (Math.pow( 1+ (irr/1200), tenure)) ) / ( (Math.pow( 1+ (irr/1200), tenure)) - 1 ) ) - (1/tenure) ) * 1200 )
+
+  ROIpa = parseFloat(ROIpa.toFixed(2))
 
   let ROIpm = ROIpa / 12;
 
@@ -375,5 +378,5 @@ window.checkEmi = checkEmi;
 window.handleInputs = handleInputs;
 window.changeErrFunc = changeErrFunc;
 
-inject({ debug: false });
-injectSpeedInsights();
+// inject({ debug: false });
+// injectSpeedInsights();
