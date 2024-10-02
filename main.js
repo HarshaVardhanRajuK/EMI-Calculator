@@ -1,5 +1,5 @@
-// import { inject } from "@vercel/analytics";
-// import { injectSpeedInsights } from "@vercel/speed-insights";
+import { inject } from "@vercel/analytics";
+import { injectSpeedInsights } from "@vercel/speed-insights";
 
 // request elements
 const loanInpEle = document.getElementById("appLoanAmount");
@@ -23,8 +23,6 @@ const spinner = document.querySelector(".span");
 const buttonText = document.querySelector(".button-text");
 
 const insuranceData = JSON.parse(import.meta.env.VITE_INSURANCEDATA);
-// console.log(insuranceData)
-// const ROIData = JSON.parse(import.meta.env.VITE_ROIDATA);
 
 // ----------------------------------------------------- //
 
@@ -378,5 +376,5 @@ window.checkEmi = checkEmi;
 window.handleInputs = handleInputs;
 window.changeErrFunc = changeErrFunc;
 
-// inject({ debug: false });
-// injectSpeedInsights();
+inject({ debug: false });
+injectSpeedInsights();
