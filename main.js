@@ -214,10 +214,10 @@ function getBrokenCharges(tla) {
   let currentMonth = now.getMonth() + 1;
   let currentYear = now.getFullYear();
 
-  if (currentDay > 15 || currentDay < 2) {
+  if (currentDay > 10 || currentDay < 2) {
     let nextMonth;
 
-    if (currentDay > 15) {
+    if (currentDay > 10) {
       nextMonth = new Date(currentYear, currentMonth, 2);
     } else if (currentDay < 2) {
       nextMonth = new Date(currentYear, currentMonth - 1, 2);
